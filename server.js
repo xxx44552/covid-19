@@ -11,13 +11,11 @@ app.post('/subscribe', async function (req, res) {
     const find = await Subscriber.findOne({email: req.body.email});
     if(find) {
       find.countries = req.body.countries;
-      find.sendGlobalInfo = req.body.sendGlobalInfo;
       await find.save();
     }else {
       const subscriber = new Subscriber({
         countries: req.body.countries,
-        email: req.body.email,
-        sendGlobalInfo: req.body.sendGlobalInfo
+        email: req.body.email
       });
       await subscriber.save()
     }

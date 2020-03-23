@@ -18,10 +18,6 @@ const userScheme = new Schema({
   countries: {
     type: Object,
     require: true
-  },
-  sendGlobalInfo: {
-    type: Boolean,
-    default: false
   }
 }
 ,{

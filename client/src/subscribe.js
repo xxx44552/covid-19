@@ -2,25 +2,25 @@ import React, {useState} from "react";
 
 export default function Subscribe(props) {
 
-  const [list, setList] = useState(props.data[0]);
+  const [list, setList] = useState([]);
   const [email, setEmail] = useState(null);
   const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
   const [error, setError] = useState('Err');
-  const [checked, setChecked] = useState(false);
   const [show, setShow] = useState(false);
   const style = {
     "height": "200px",
-    "overflow-y": "scroll"
+    "overflowY": "scroll"
   }
   function send(e) {
     e.preventDefault();
+    console.log(list);
     if(error) {
       console.log('err');
       return
     }
     fetch('/subscribe', {
       method: 'post',
-      body: JSON.stringify({countries: [list], email, sendGlobalInfo: checked}),
+      body: JSON.stringify({countries: list, email}),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -37,32 +37,35 @@ export default function Subscribe(props) {
     console.log(error)
   }
 
+  function checkCountry(e) {
+    e.preventDefault();
+    let arr = list;
+    if(e.target.previousSibling.checked) {
+      e.target.previousSibling.checked = false;
+      setList(arr.filter(del => del !== e.target.innerHTML));
+    }else {
+      e.target.previousSibling.checked = true;
+      if(arr.includes(e.target.innerHTML)) return;
+      arr.push(e.target.innerHTML);
+      setList(arr);
+    }
+  }
+
   return (
       <div className='subscribe'>
-        <p className='select-title'>Выберите страну</p>
         <form onSubmit={send}>
-          <select onChange={e => setList(e.target.value)}>
-            {props.data.map((el, i) => <option key={i}>{el}</option>)}
-          </select>
           <div className='select-list-wrap'>
-            <ul className='select-list'
-                onClick={(e) => {
-                  setShow(true);
-                  e.target.focus()
-                }}
+            <ul className='select-list' tabIndex='0'
+                onFocus={ () => setShow(true)}
                 onBlur={() => setShow(false)}
                 style={ show ? style : null}>
               <li className='item'>Выберите страну</li>
               {props.data.map((el, i) => {
                 return <li className='item' key={i}>
                   <input type="checkbox" id={el}/>
-                  <label htmlFor={el}>{el}</label>
+                  <label onClick={checkCountry} htmlFor={el}>{el}</label>
                 </li>})}
             </ul>
-          </div>
-          <div className='check-wrap'>
-            <input type='checkbox' onChange={e => setChecked(e.target.checked)} id='all' />
-            <label htmlFor='all'>Подписаться на общую статистику</label>
           </div>
           <input type='email' onChange={emailFunc} placeholder='Ваш email..'/>
           <button>Подписаться</button>
