@@ -1,0 +1,843 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
+
+html, #root
+    height: 100%
+
+body
+    width: 100vw
+    height: 100vh
+    background-color: #282c34
+    overflow: hidden
+    color: #fff
+    font-family: 'Roboto', sans-serif
+    line-height: 1.2
+
+.app
+    display: flex
+    flex-direction: column
+    min-height: 100%
+
+h1, h2, h3, h4, h5
+    font-weight: 700
+
+h3
+    font-size: 22px
+    text-align: center
+    margin-bottom: 20px
+
+footer
+    display: flex
+    align-items: center
+    justify-content: center
+
+header, footer
+    height: 65px
+    background-color: #111
+
+h1
+    text-align: center
+    padding: 20px 10px
+    font-size: 24px
+
+main
+    flex: 1 0 auto
+
+.content
+    height: calc(100vh - 160px)
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    width: calc(100% - 20px)
+    max-width: 900px
+    margin: 0 auto
+    padding: 15px 10px
+    position: relative
+
+.countries
+    width: 100%
+    height: 100%
+    //overflow-y: scroll
+    padding-right: 10px
+    position: relative
+
+footer
+    flex: 0 0 auto
+    a
+        color: #ffffff
+        text-decoration: none
+
+.active
+    text-decoration: underline
+
+.navigation
+    display: flex
+
+.nav-item
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    svg
+        margin-bottom: 7px
+
+    & + .nav-item
+        margin-left: 20px
+
+.title
+    font-size: 13px
+
+/*ScrollBar*/
+
+/* width */
+::-webkit-scrollbar
+    width: 5px
+
+/* Track */
+::-webkit-scrollbar-track
+    background: lighten(#101317, 5%)
+
+/* Handle */
+::-webkit-scrollbar-thumb
+    background: #888
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+    background: #555
+    
+.country
+    padding: 15px 0 15px 15px
+
+    & + .country
+        border-top: 1px solid rgba(224,227,228, .1)
+
+    h5
+        font-size: 20px
+        margin-bottom: 10px
+.wrap
+    display: flex
+    flex-direction: column
+
+    span
+        font-size: 13px
+        color: #eeeeee
+
+        & + span
+            margin-top: 3px
+
+.search
+    position: sticky
+    top: 0
+    left: 0
+    background-color: #111
+    display: flex
+    align-items: center
+    padding-left: 15px
+
+    svg
+        transition: all .2s
+
+    input
+        height: 36px
+        color: #ffffff
+        border: none
+        outline: none
+        padding: 0 10px
+        width: calc(100% - 30px)
+        background-color: transparent
+
+        &::placeholder
+            color: #808080
+
+.start
+    .text
+        text-align: center
+        font-size: 22px
+
+.loader
+    width: 100px
+    height: 100px
+    animation: anim 1.2s linear infinite
+    position: absolute
+    left: 0
+    right: 0
+    margin: -50px auto 0
+    top: 50%
+    z-index: 99
+
+@keyframes anim
+    0%
+        transform: scale(1)
+
+    50%
+        transform: scale(1.5)
+
+    100%
+        transform: scale(1)
+
+.global-wrap
+    display: flex
+    justify-content: space-around
+
+    .item
+        display: flex
+        flex-direction: column
+        align-items: center
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
+
+html, #root
+    height: 100%
+
+body
+    width: 100vw
+    height: 100vh
+    background-color: #282c34
+    overflow: hidden
+    color: #fff
+    font-family: 'Roboto', sans-serif
+
+.app
+    display: flex
+    flex-direction: column
+    min-height: 100%
+
+h1, h2, h3, h4, h5
+    font-weight: 700
+
+h3
+    font-size: 22px
+    text-align: center
+    margin-bottom: 20px
+
+footer
+    display: flex
+    align-items: center
+    justify-content: center
+
+header, footer
+    height: 65px
+    background-color: #111
+
+h1
+    text-align: center
+    padding: 20px 10px
+    font-size: 24px
+
+main
+    flex: 1 0 auto
+
+.content
+    height: calc(100vh - 160px)
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    width: calc(100% - 20px)
+    max-width: 900px
+    margin: 0 auto
+    padding: 15px 10px
+    position: relative
+
+.countries
+    width: 100%
+    height: 100%
+    //overflow-y: scroll
+    padding-right: 10px
+    position: relative
+
+footer
+    flex: 0 0 auto
+    a
+        color: #ffffff
+        text-decoration: none
+
+.active
+    text-decoration: underline
+
+.navigation
+    display: flex
+
+.nav-item
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    svg
+        margin-bottom: 7px
+
+    & + .nav-item
+        margin-left: 20px
+
+.title
+    font-size: 13px
+
+/*ScrollBar*/
+
+/* width */
+::-webkit-scrollbar
+    width: 5px
+
+/* Track */
+::-webkit-scrollbar-track
+    background: lighten(#101317, 5%)
+
+/* Handle */
+::-webkit-scrollbar-thumb
+    background: #888
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+    background: #555
+
+.country
+    padding: 15px 0 15px 15px
+
+    & + .country
+        border-top: 1px solid rgba(224,227,228, .1)
+
+    h5
+        font-size: 20px
+        margin-bottom: 10px
+.wrap
+    display: flex
+    flex-direction: column
+
+    span
+        font-size: 13px
+        color: #eeeeee
+
+        & + span
+            margin-top: 3px
+
+.search
+    position: sticky
+    top: 0
+    left: 0
+    background-color: #111
+    display: flex
+    align-items: center
+    padding-left: 15px
+
+    svg
+        transition: all .2s
+
+    input
+        height: 36px
+        color: #ffffff
+        border: none
+        outline: none
+        padding: 0 10px
+        width: calc(100% - 30px)
+        background-color: transparent
+
+        &::placeholder
+            color: #808080
+
+.start
+    .text
+        text-align: center
+        font-size: 22px
+
+.loader
+    width: 100px
+    height: 100px
+    animation: anim 1.2s linear infinite
+    position: absolute
+    left: 0
+    right: 0
+    margin: -50px auto 0
+    top: 50%
+    z-index: 99
+
+@keyframes anim
+    0%
+        transform: scale(1)
+
+    50%
+        transform: scale(1.5)
+
+    100%
+        transform: scale(1)
+
+.global-wrap
+    display: flex
+    justify-content: space-around
+
+    .item
+        display: flex
+        flex-direction: column
+        align-items: center
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
+
+html, #root
+    height: 100%
+
+body
+    width: 100vw
+    height: 100vh
+    background-color: #282c34
+    overflow: hidden
+    color: #fff
+    font-family: 'Roboto', sans-serif
+
+.app
+    display: flex
+    flex-direction: column
+    min-height: 100%
+
+h1, h2, h3, h4, h5
+    font-weight: 700
+
+h3
+    font-size: 22px
+    text-align: center
+    margin-bottom: 20px
+
+footer
+    display: flex
+    align-items: center
+    justify-content: center
+
+header, footer
+    height: 65px
+    background-color: #111
+
+h1
+    text-align: center
+    padding: 20px 10px
+    font-size: 24px
+
+main
+    flex: 1 0 auto
+
+.content
+    height: calc(100vh - 160px)
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    width: calc(100% - 20px)
+    max-width: 900px
+    margin: 0 auto
+    padding: 15px 10px
+    position: relative
+
+.countries
+    width: 100%
+    height: 100%
+    //overflow-y: scroll
+    padding-right: 10px
+    position: relative
+
+footer
+    flex: 0 0 auto
+    a
+        color: #ffffff
+        text-decoration: none
+
+.active
+    text-decoration: underline
+
+.navigation
+    display: flex
+
+.nav-item
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    svg
+        margin-bottom: 7px
+
+    & + .nav-item
+        margin-left: 20px
+
+.title
+    font-size: 13px
+
+/*ScrollBar*/
+
+/* width */
+::-webkit-scrollbar
+    width: 5px
+
+/* Track */
+::-webkit-scrollbar-track
+    background: lighten(#101317, 5%)
+
+/* Handle */
+::-webkit-scrollbar-thumb
+    background: #888
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+    background: #555
+
+.country
+    padding: 15px 0 15px 15px
+
+    & + .country
+        border-top: 1px solid rgba(224,227,228, .1)
+
+    h5
+        font-size: 20px
+        margin-bottom: 10px
+.wrap
+    display: flex
+    flex-direction: column
+
+    span
+        font-size: 13px
+        color: #eeeeee
+
+        & + span
+            margin-top: 3px
+
+.search
+    position: sticky
+    top: 0
+    left: 0
+    background-color: #111
+    display: flex
+    align-items: center
+    padding-left: 15px
+
+    svg
+        transition: all .2s
+
+    input
+        height: 36px
+        color: #ffffff
+        border: none
+        outline: none
+        padding: 0 10px
+        width: calc(100% - 30px)
+        background-color: transparent
+
+        &::placeholder
+            color: #808080
+
+.start
+    .text
+        text-align: center
+        font-size: 22px
+
+.loader
+    width: 100px
+    height: 100px
+    animation: anim 1.2s linear infinite
+    position: absolute
+    left: 0
+    right: 0
+    margin: -50px auto 0
+    top: 50%
+    z-index: 99
+
+@keyframes anim
+    0%
+        transform: scale(1)
+
+    50%
+        transform: scale(1.5)
+
+    100%
+        transform: scale(1)
+
+.global-wrap
+    display: flex
+    justify-content: space-around
+
+    .item
+        display: flex
+        flex-direction: column
+        align-items: center
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
+
+html, #root
+    height: 100%
+
+body
+    width: 100vw
+    height: 100vh
+    background-color: #282c34
+    overflow: hidden
+    color: #fff
+    font-family: 'Roboto', sans-serif
+
+.app
+    display: flex
+    flex-direction: column
+    min-height: 100%
+
+h1, h2, h3, h4, h5
+    font-weight: 700
+
+h3
+    font-size: 26px
+    text-align: center
+    margin-bottom: 40px
+
+footer
+    display: flex
+    align-items: center
+    justify-content: center
+
+header, footer
+    height: 65px
+    background-color: #111
+
+h1
+    text-align: center
+    padding: 20px 10px
+    font-size: 24px
+
+main
+    flex: 1 0 auto
+
+.content
+    height: calc(100vh - 160px)
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    width: calc(100% - 20px)
+    max-width: 900px
+    margin: 0 auto
+    padding: 15px 10px
+    position: relative
+
+.countries
+    width: 100%
+    height: 100%
+    //overflow-y: scroll
+    padding-right: 10px
+    position: relative
+
+footer
+    flex: 0 0 auto
+    a
+        color: #ffffff
+        text-decoration: none
+
+.active
+    text-decoration: underline
+
+.navigation
+    display: flex
+
+.nav-item
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    svg
+        margin-bottom: 7px
+
+    & + .nav-item
+        margin-left: 20px
+
+.title
+    font-size: 13px
+
+/*ScrollBar*/
+
+/* width */
+::-webkit-scrollbar
+    width: 5px
+
+/* Track */
+::-webkit-scrollbar-track
+    background: lighten(#101317, 5%)
+
+/* Handle */
+::-webkit-scrollbar-thumb
+    background: #888
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+    background: #555
+
+.country
+    padding: 15px 0 15px 15px
+
+    & + .country
+        border-top: 1px solid rgba(224,227,228, .1)
+
+    h5
+        font-size: 20px
+        margin-bottom: 10px
+.wrap
+    display: flex
+    flex-direction: column
+
+    span
+        font-size: 13px
+        color: #eeeeee
+
+        & + span
+            margin-top: 3px
+
+.search
+    position: sticky
+    top: 0
+    left: 0
+    background-color: #111
+    display: flex
+    align-items: center
+    padding-left: 15px
+
+    svg
+        transition: all .2s
+
+    input
+        height: 36px
+        color: #ffffff
+        border: none
+        outline: none
+        padding: 0 10px
+        width: calc(100% - 30px)
+        background-color: transparent
+
+        &::placeholder
+            color: #808080
+
+.start
+    .text
+        text-align: center
+        font-size: 26px
+        margin-bottom: 40px
+
+.loader
+    width: 100px
+    height: 100px
+    animation: anim 1.2s linear infinite
+    position: absolute
+    left: 0
+    right: 0
+    margin: -50px auto 0
+    top: 50%
+    z-index: 99
+
+@keyframes anim
+    0%
+        transform: scale(1)
+
+    50%
+        transform: scale(1.5)
+
+    100%
+        transform: scale(1)
+
+.global-wrap
+    display: flex
+    justify-content: space-around
+
+    .item
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        width: 30%
+
+        img
+            height: 130px
+            width: auto
+
+.global-text
+    margin: 10px 0
+    font-size: 18px
+
+.global-num
+    font-size: 16px
+
+.global-info
+    display: flex
+    flex-direction: column
+    justify-content: center
+    height: 100%
+
+.start
+    height: 100%
+    display: flex
+    flex-direction: column
+
+    h5
+        margin-bottom: 15px
+        text-align: center
+
+.subscribe
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    max-width: 320px
+    margin: 0 auto
+    width: 100%
+
+    input[type="email"]
+        width: 100%
+        height: 30px
+        padding: 0 10px
+        margin-top: 15px
+        box-sizing: border-box
+
+.earth
+    margin-bottom: -15px
+    width: auto
+    height: 250px
+
+select
+    width: 100%
+    height: 30px
+    margin-bottom: 15px
+
+button
+    width: 100%
+    background-color: #66bf29
+    margin-top: 15px
+    border-radius: 3px
+    border: none
+    height: 30px
+    color: #ffffff
+    cursor: pointer
+    font-size: 18px
+
+.check-wrap
+    display: flex
+    align-items: center
+
+.select-title
+    font-size: 11px
+    color: #ffffff
+    margin-bottom: 3px
+
+.select-list-wrap
+    height: 30px
+    margin-bottom: 15px
+    position: relative
+
+.select-list
+    width: 100%
+    height: 30px
+    overflow: hidden
+    border: 1px solid grey
+    border-radius: 3px
+    background-color: #ffffff
+    
+    label
+        width: 100%
+        cursor: pointer
+    
+    .item
+        line-height: 30px
+        display: flex
+        align-items: center
+        padding-left: 5px
+        color: #414042
+        
+        &:first-of-type
+            position: sticky
+            top: 0
+            background-color: #ffffff
+            cursor: pointer
