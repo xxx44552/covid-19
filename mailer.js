@@ -8,11 +8,29 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-function sendMailToSubscriber(email, text) {
-
+function sendMailToSubscriber(email, text, global) {
+  const globalData = `<table border="1" cellpadding="4" cellspacing="2">
+        <tbody>
+            <tr><th>Общая статистика по миру</th></tr>
+            <tr>
+              <td>Заболевшие</td>
+              <td>${global.cases}</td>
+            </tr>
+            <tr>
+              <td>Умершие</td>
+              <td>${global.deaths}</td>
+            </tr>
+            <tr>
+              <td>Вылечились</td>
+              <td>${global.recovered}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>`;
   const data = text.map(({country,cases, todayCases, deaths, todayDeaths,
                            recovered, active, critical, casesPerOneMillion}) => {
-    return `<table border="1" cellpadding="4" cellspacing="2">
+    return `
+    <table border="1" cellpadding="4" cellspacing="2">
       <tbody>
           <tr>
              <th>Страна - ${country}</th>
@@ -50,14 +68,14 @@ function sendMailToSubscriber(email, text) {
             <td>${casesPerOneMillion}</td>
           </tr>
         </tbody>
-    </table>`
+    </table><br/>`
   }).join('');
 
   const mailOptions = {
     from: 'nodejs',
     to: email,
     subject: `Статистика по коронавирусу на ${new Date().toLocaleString()}`,
-    html: data
+    html: globalData + data
   };
 
   transporter.sendMail(mailOptions, function(error, info){
@@ -69,4 +87,22 @@ function sendMailToSubscriber(email, text) {
   });
 }
 
-module.exports = {sendMailToSubscriber};
+function welcome(email, countries) {
+
+  const mailOptions = {
+    from: 'nodejs',
+    to: email,
+    subject: 'Подписка на статистику по COVID-19',
+    text: `Вы подписались на ежедневную рассылку статистики по коронавиру по старанам: ${countries}.`
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error)
+    } else {
+      console.log(info)
+    }
+  });
+}
+
+module.exports = {sendMailToSubscriber, welcome};

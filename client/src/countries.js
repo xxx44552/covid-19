@@ -25,7 +25,7 @@ function Countries() {
   }
 
   return (
-      <div className='countries' style={!isLoader ? {"overflow-y": "scroll"}: null} >
+      <div className='countries' style={!isLoader ? {"overflowY": "scroll"}: null} >
         {
           isLoader ?
               <Loader/>

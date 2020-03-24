@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Subscribe from "./subscribe";
 import Loader from "./loader";
 import earth from './img/earth.svg';
+import virus from './img/virus-svgrepo-com.svg';
 
 function Start() {
 
@@ -25,7 +26,8 @@ function Start() {
            :
            <div className='start'>
              <p className='text'>
-               Текущее мировое состояние 🤒🤒🤒
+               Текущее мировое состояние
+               <span className='subtitle'>Данные обновляются каждые 3 минуты</span>
              </p>
              <h5>Подписаться на ежедневную рассылку статистики</h5>
              <Subscribe data={data}/>

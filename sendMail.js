@@ -4,15 +4,18 @@ const Subscriber = require('./models/subscriber');
 const mongoose = require('mongoose');
 require('./mangoose');
 
-const options = {
-  method: 'GET',
-  uri: 'https://coronavirus-19-api.herokuapp.com/countries'
-};
-
 async function sendToUser() {
   let data;
+  let global;
   try {
-    data = await request(options);
+    data = await request({
+      method: 'GET',
+      uri: 'https://coronavirus-19-api.herokuapp.com/countries'
+    });
+    global = await request({
+      method: 'GET',
+      uri: 'https://coronavirus-19-api.herokuapp.com/all'
+    })
   }catch (e) {
     console.log(e)
   }
@@ -25,7 +28,7 @@ async function sendToUser() {
           if(el.country === country) arr.push(el)
         })
       });
-      send.sendMailToSubscriber(email, arr)
+      send.sendMailToSubscriber(email, arr, JSON.parse(global))
     });
   }catch (e) {
     console.log(e)
