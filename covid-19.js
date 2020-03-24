@@ -2,8 +2,13 @@ const express = require('express');
 const config = require('./config');
 const Subscriber = require('./models/subscriber');
 const send = require('./mailer');
+const path = require('path');
 const app = express();
 require('./mangoose');
+
+app.use(express.json());
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(express.json());
 
@@ -26,14 +31,23 @@ app.post('/subscribe', async function (req, res) {
   }catch (e) {
     res.sendStatus(500);
   }
-
 });
 
-app.get('/test', async function (req, res) {
-  const data = await Subscriber.find()
-  res.send(data)
-})
+app.get('/unsubscribe/:email', async function (req, res) {
+  try {
+    const email = await Subscriber.findOne({email: req.params.email});
+    await email.deleteOne();
+    send.unSubscribe(req.params.email);
+  }catch (e) {
+    console.log(e)
+  }
+  res.redirect('https://covid.webinme.ru/')
+});
+
+app.get("*", function(req, res){
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 app.listen(config.port, function () {
-  console.log(`Example app listening on port ${config.port}!`);
+  console.log(`Start on port ${config.port}!`);
 });

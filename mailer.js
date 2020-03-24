@@ -9,6 +9,18 @@ const transporter = nodemailer.createTransport({
 });
 
 function sendMailToSubscriber(email, text, global) {
+  const link = `https://covid.webinme.ru/unsubscribe/${email}`;
+  const unsubscribe = `
+   <table style="display: block;width: 100%;max-width: 600px;">
+     <tbody>
+       <tr>
+         <td style="text-align: right">
+            <a href="${link}">Отписаться от рассылки</a> 
+        </td>
+      </tr>
+    </tbody>
+  </table>`;
+
   const globalData = `<table border="1" cellpadding="4" cellspacing="2">
         <tbody>
             <tr><th>Общая статистика по миру</th></tr>
@@ -75,7 +87,7 @@ function sendMailToSubscriber(email, text, global) {
     from: 'nodejs',
     to: email,
     subject: `Статистика по коронавирусу на ${new Date().toLocaleString()}`,
-    html: globalData + data
+    html: globalData + data + unsubscribe
   };
 
   transporter.sendMail(mailOptions, function(error, info){
@@ -93,7 +105,7 @@ function welcome(email, countries) {
     from: 'nodejs',
     to: email,
     subject: 'Подписка на статистику по COVID-19',
-    text: `Вы подписались на ежедневную рассылку статистики по коронавиру по старанам: ${countries}.`
+    text: `Вы подписались на ежедневную рассылку статистики по коронавирусу по странам: ${countries}.`
   };
 
   transporter.sendMail(mailOptions, function(error, info){
@@ -105,4 +117,22 @@ function welcome(email, countries) {
   });
 }
 
-module.exports = {sendMailToSubscriber, welcome};
+function unSubscribe(email) {
+
+  const mailOptions = {
+    from: 'nodejs',
+    to: email,
+    subject: 'Отписка на статистику по COVID-19',
+    text: `Вы успешно отписались от статистики по коронавирусу.`
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error)
+    } else {
+      console.log(info)
+    }
+  });
+}
+
+module.exports = {sendMailToSubscriber, welcome, unSubscribe};

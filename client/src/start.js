@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import Subscribe from "./subscribe";
 import Loader from "./loader";
 import earth from './img/earth.svg';
-import virus from './img/virus-svgrepo-com.svg';
 
 function Start() {
 

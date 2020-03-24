@@ -2,10 +2,11 @@
   "name": "corona",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "covid-19.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node covid-19.js",
+    "copyFront": "sudo scp -r ./client/build xxx44552@188.246.235.216:/var/www/covid/client/build"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.5",
     "nodemailer": "^6.4.6",
+    "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "validator": "^13.0.0"
   }

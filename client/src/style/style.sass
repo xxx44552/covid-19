@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
-
 $text: #414042
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
 
 html, #root
     height: 100%
 
 body
     width: 100vw
-    height: 100vh
+    //height: calc(100vh - 65px)
     background-color: #282c34
     overflow: hidden
     color: #fff
@@ -34,528 +34,11 @@ footer
     display: flex
     align-items: center
     justify-content: center
-
-header, footer
-    height: 65px
-    background-color: #111
-
-h1
-    text-align: center
-    padding: 20px 10px
-    font-size: 24px
-
-main
-    flex: 1 0 auto
-
-.content
-    height: calc(100vh - 160px)
-    overflow: hidden
-    display: flex
-    flex-direction: column
-    width: calc(100% - 20px)
-    max-width: 900px
-    margin: 0 auto
-    padding: 15px 10px
-    position: relative
-
-.countries
-    width: 100%
-    height: 100%
-    //overflow-y: scroll
-    padding-right: 10px
-    position: relative
-
-footer
-    flex: 0 0 auto
-    a
-        color: #ffffff
-        text-decoration: none
-
-.active
-    text-decoration: underline
-
-.navigation
-    display: flex
-
-.nav-item
-    display: flex
-    flex-direction: column
-    align-items: center
-
-    svg
-        margin-bottom: 7px
-
-    & + .nav-item
-        margin-left: 20px
-
-.title
-    font-size: 13px
-
-/*ScrollBar*/
-
-/* width */
-::-webkit-scrollbar
-    width: 5px
-
-/* Track */
-::-webkit-scrollbar-track
-    background: lighten(#101317, 5%)
-
-/* Handle */
-::-webkit-scrollbar-thumb
-    background: #888
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover
-    background: #555
-    
-.country
-    padding: 15px 0 15px 15px
-
-    & + .country
-        border-top: 1px solid rgba(224,227,228, .1)
-
-    h5
-        font-size: 20px
-        margin-bottom: 10px
-.wrap
-    display: flex
-    flex-direction: column
-
-    span
-        font-size: 13px
-        color: #eeeeee
-
-        & + span
-            margin-top: 3px
-
-.search
-    position: sticky
-    top: 0
-    left: 0
-    background-color: #111
-    display: flex
-    align-items: center
-    padding-left: 15px
-
-    svg
-        transition: all .2s
-
-    input
-        height: 36px
-        color: #ffffff
-        border: none
-        outline: none
-        padding: 0 10px
-        width: calc(100% - 30px)
-        background-color: transparent
-
-        &::placeholder
-            color: #808080
-
-.start
-    .text
-        text-align: center
-        font-size: 26px
-        margin-bottom: 40px
-
-        @media screen and (max-width: 768px)
-            font-size: 20px
-            margin-bottom: 20px
-
-        .subtitle
-            display: block
-            font-size: 13px
-            text-align: center
-
-.loader
-    width: 100px
-    height: 100px
-    animation: anim 1.2s linear infinite
-    position: absolute
+    position: fixed
+    bottom: 0
     left: 0
     right: 0
-    margin: -50px auto 0
-    top: 50%
-    z-index: 99
-
-@keyframes anim
-    0%
-        transform: scale(1)
-
-    50%
-        transform: scale(1.5)
-
-    100%
-        transform: scale(1)
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
-
-html, #root
-    height: 100%
-
-body
-    width: 100vw
-    height: 100vh
-    background-color: #282c34
-    overflow: hidden
-    color: #fff
-    font-family: 'Roboto', sans-serif
-
-.app
-    display: flex
-    flex-direction: column
-    min-height: 100%
-
-h1, h2, h3, h4, h5
-    font-weight: 700
-
-footer
-    display: flex
-    align-items: center
-    justify-content: center
-
-header, footer
-    height: 65px
-    background-color: #111
-
-h1
-    text-align: center
-    padding: 20px 10px
-    font-size: 24px
-
-main
-    flex: 1 0 auto
-
-.content
-    height: calc(100vh - 160px)
-    overflow: hidden
-    display: flex
-    flex-direction: column
-    width: calc(100% - 20px)
-    max-width: 900px
-    margin: 0 auto
-    padding: 15px 10px
-    position: relative
-
-.countries
     width: 100%
-    height: 100%
-    //overflow-y: scroll
-    padding-right: 10px
-    position: relative
-
-footer
-    flex: 0 0 auto
-    a
-        color: #ffffff
-        text-decoration: none
-
-.active
-    text-decoration: underline
-
-.navigation
-    display: flex
-
-.nav-item
-    display: flex
-    flex-direction: column
-    align-items: center
-
-    svg
-        margin-bottom: 7px
-
-    & + .nav-item
-        margin-left: 20px
-
-.title
-    font-size: 13px
-
-/*ScrollBar*/
-
-/* width */
-::-webkit-scrollbar
-    width: 5px
-
-/* Track */
-::-webkit-scrollbar-track
-    background: lighten(#101317, 5%)
-
-/* Handle */
-::-webkit-scrollbar-thumb
-    background: #888
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover
-    background: #555
-
-.country
-    padding: 15px 0 15px 15px
-
-    & + .country
-        border-top: 1px solid rgba(224,227,228, .1)
-
-    h5
-        font-size: 20px
-        margin-bottom: 10px
-.wrap
-    display: flex
-    flex-direction: column
-
-    span
-        font-size: 13px
-        color: #eeeeee
-
-        & + span
-            margin-top: 3px
-
-.search
-    position: sticky
-    top: 0
-    left: 0
-    background-color: #111
-    display: flex
-    align-items: center
-    padding-left: 15px
-
-    svg
-        transition: all .2s
-
-    input
-        height: 36px
-        color: #ffffff
-        border: none
-        outline: none
-        padding: 0 10px
-        width: calc(100% - 30px)
-        background-color: transparent
-
-        &::placeholder
-            color: #808080
-
-.loader
-    width: 100px
-    height: 100px
-    animation: anim 1.2s linear infinite
-    position: absolute
-    left: 0
-    right: 0
-    margin: -50px auto 0
-    top: 50%
-    z-index: 99
-
-@keyframes anim
-    0%
-        transform: scale(1)
-
-    50%
-        transform: scale(1.5)
-
-    100%
-        transform: scale(1)
-
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
-
-html, #root
-    height: 100%
-
-body
-    width: 100vw
-    height: 100vh
-    background-color: #282c34
-    overflow: hidden
-    color: #fff
-    font-family: 'Roboto', sans-serif
-
-.app
-    display: flex
-    flex-direction: column
-    min-height: 100%
-
-h1, h2, h3, h4, h5
-    font-weight: 700
-
-h3
-    font-size: 22px
-    text-align: center
-    margin-bottom: 20px
-
-footer
-    display: flex
-    align-items: center
-    justify-content: center
-
-header, footer
-    height: 65px
-    background-color: #111
-
-h1
-    text-align: center
-    padding: 20px 10px
-    font-size: 24px
-
-main
-    flex: 1 0 auto
-
-.content
-    height: calc(100vh - 160px)
-    overflow: hidden
-    display: flex
-    flex-direction: column
-    width: calc(100% - 20px)
-    max-width: 900px
-    margin: 0 auto
-    padding: 15px 10px
-    position: relative
-
-.countries
-    width: 100%
-    height: 100%
-    //overflow-y: scroll
-    padding-right: 10px
-    position: relative
-
-footer
-    flex: 0 0 auto
-    a
-        color: #ffffff
-        text-decoration: none
-
-.active
-    text-decoration: underline
-
-.navigation
-    display: flex
-
-.nav-item
-    display: flex
-    flex-direction: column
-    align-items: center
-
-    svg
-        margin-bottom: 7px
-
-    & + .nav-item
-        margin-left: 20px
-
-.title
-    font-size: 13px
-
-/*ScrollBar*/
-
-/* width */
-::-webkit-scrollbar
-    width: 5px
-
-/* Track */
-::-webkit-scrollbar-track
-    background: lighten(#101317, 5%)
-
-/* Handle */
-::-webkit-scrollbar-thumb
-    background: #888
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover
-    background: #555
-
-.country
-    padding: 15px 0 15px 15px
-
-    & + .country
-        border-top: 1px solid rgba(224,227,228, .1)
-
-    h5
-        font-size: 20px
-        margin-bottom: 10px
-.wrap
-    display: flex
-    flex-direction: column
-
-    span
-        font-size: 13px
-        color: #eeeeee
-
-        & + span
-            margin-top: 3px
-
-.search
-    position: sticky
-    top: 0
-    left: 0
-    background-color: #111
-    display: flex
-    align-items: center
-    padding-left: 15px
-
-    svg
-        transition: all .2s
-
-    input
-        height: 36px
-        color: #ffffff
-        border: none
-        outline: none
-        padding: 0 10px
-        width: calc(100% - 30px)
-        background-color: transparent
-
-        &::placeholder
-            color: #808080
-
-.loader
-    width: 100px
-    height: 100px
-    animation: anim 1.2s linear infinite
-    position: absolute
-    left: 0
-    right: 0
-    margin: -50px auto 0
-    top: 50%
-    z-index: 99
-
-@keyframes anim
-    0%
-        transform: scale(1)
-
-    50%
-        transform: scale(1.5)
-
-    100%
-        transform: scale(1)
-
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
-
-html, #root
-    height: 100%
-
-body
-    width: 100vw
-    height: 100vh
-    background-color: #282c34
-    overflow: hidden
-    color: #fff
-    font-family: 'Roboto', sans-serif
-
-.app
-    display: flex
-    flex-direction: column
-    min-height: 100%
-
-h1, h2, h3, h4, h5
-    font-weight: 700
-
-h3
-    font-size: 26px
-    text-align: center
-    margin-bottom: 40px
-
-footer
-    display: flex
-    align-items: center
-    justify-content: center
 
 header, footer
     height: 65px
@@ -712,12 +195,18 @@ footer
         justify-content: center
         width: 30%
 
+        @media screen and (max-width: 768px)
+            width: 70%
+
+            & + .item
+                margin-top: 15px
+
         img
             height: 130px
             width: auto
 
             @media screen and (max-width: 768px)
-                height: 65px
+                height: 10vh
 
 .global-text
     margin: 10px 0
@@ -738,11 +227,25 @@ footer
     justify-content: center
     height: 100%
 
-.start
-    height: 100%
-    display: flex
-    flex-direction: column
+    @media screen and (max-width: 768px)
+        justify-content: flex-start
 
+.start
+    .text
+        text-align: center
+        font-size: 26px
+        margin-bottom: 40px
+
+
+
+        @media screen and (max-width: 768px)
+            font-size: 20px
+            margin-bottom: 20px
+
+        .subtitle
+            display: block
+            font-size: 13px
+            text-align: center
     h5
         margin-bottom: 15px
         text-align: center
@@ -762,17 +265,17 @@ footer
         box-sizing: border-box
 
 .earth
-    margin-bottom: -15px
     width: auto
-    height: 250px
+    height: 350px
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    margin: 0 auto
 
     @media screen and (max-width: 768px)
         height: 180px
-        position: absolute
-        bottom: 0
-        left: 0
-        right: 0
-        margin: 0 auto
+
 
 button
     width: 100%
