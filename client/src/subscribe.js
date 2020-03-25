@@ -11,10 +11,6 @@ export default function Subscribe(props) {
   const [success ,setSuccess] = useState(false);
   const [emptyList, setEmptyList] = useState(false);
 
-  const style = {
-    "height": "200px",
-    "overflowY": "scroll"
-  }
   function send(e) {
     e.preventDefault();
     console.log(list);
@@ -76,16 +72,17 @@ export default function Subscribe(props) {
       <div className='subscribe'>
         <form onSubmit={send}>
           <div className='select-list-wrap'>
-            <ul className='select-list' tabIndex='0'
+            <ul className={`select-list ${show ? 'open' : ''}`} tabIndex='0'
                 onFocus={ () => setShow(true)}
                 onBlur={() => setShow(false)}
-                style={ show ? style : null}>
-              <li className='item' style={emptyList ? {"color": "red"} : null}>{list.length !== 0 ? list.map(title => <span key={title} className='country-title'>{title}&nbsp;</span>)  : 'Выберите страну'}</li>
+                >
+              <li onClick={() => setShow(true)} className='item' style={emptyList ? {"color": "red"} : null}>{list.length !== 0 ? list.map(title => <span key={title} className='country-title'>{title}&nbsp;</span>)  : 'Выберите страну'}</li>
               {props.data.map((el, i) => {
                 return <li className='item' key={i}>
                   <input type="checkbox" id={el}/>
                   <label onClick={checkCountry} htmlFor={el}>{el}</label>
                 </li>})}
+              <li className='close' onClick={() => setShow(false)}>×</li>
             </ul>
           </div>
           <div className="email-wrap">

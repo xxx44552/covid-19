@@ -1,4 +1,10 @@
 $text: #414042
+$mobile: 769px
+@mixin mobile
+    @media (max-width: #{$mobile - 1px})
+        @content
+
+
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap')
 
@@ -7,7 +13,7 @@ html, #root
 
 body
     width: 100vw
-    //height: calc(100vh - 65px)
+    height: 100vh
     background-color: #282c34
     overflow: hidden
     color: #fff
@@ -62,6 +68,7 @@ main
     margin: 0 auto
     padding: 15px 10px
     position: relative
+    padding-bottom: 65px
 
 .countries
     width: 100%
@@ -142,6 +149,17 @@ footer
     display: flex
     align-items: center
     padding-left: 15px
+
+    &:after
+        content: ''
+        background-color: #282c34
+        height: 10px
+        width: 100%
+        position: absolute
+        top: 100%
+        left: 0
+        right: 0
+        margin: 0 auto
 
     svg
         transition: all .2s
@@ -266,14 +284,14 @@ footer
 
 .earth
     width: auto
-    height: 350px
+    height: 300px
     position: absolute
-    bottom: 0
+    bottom: 65px
     left: 0
     right: 0
     margin: 0 auto
 
-    @media screen and (max-width: 768px)
+    +mobile
         height: 180px
 
 
@@ -307,10 +325,34 @@ button
     color: $text
     position: relative
     z-index: 10
-    
+
+    input[type='checkbox']
+        display: none
+
+        &:checked + label
+            &:after
+                content: '\2713'
+                line-height: 11px
+                font-size: 13px
+
     label
         width: 100%
         cursor: pointer
+        padding-left: 20px
+        position: relative
+
+        &:after
+            content: ''
+            width: 10px
+            height: 10px
+            left: 0
+            top: 50%
+            margin-top: -7px
+            border-radius: 1px
+            border: 1px solid grey
+            display: block
+            position: absolute
+
     
     .item
         line-height: 30px
@@ -324,9 +366,55 @@ button
             top: 0
             background-color: #ffffff
             cursor: pointer
+            z-index: 2
+            padding-right: 5px
+            max-height: 30px
+            overflow: hidden
+
+.close
+    display: none
+
+.open
+    overflow-y: scroll
+    height: 300px
+
+    +mobile
+        height: 100%
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+
+    .close
+        +mobile
+            display: block
+            color: red
+            position: fixed
+            right: 5px
+            bottom: 5px
+            padding: 5px 15px
+            font-size: 24px
+
+    .item:first-of-type
+        line-height: 20px
+        flex-wrap: wrap
+        max-height: 100px
+        padding: 5px
+
+        +mobile
+            max-height: 40vh
+
+
+        .country-title
+            display: inline-block
+            margin-right: 5px
+            text-decoration: underline
+
 
 .country-title
     color: $text
+    white-space: nowrap
 
 .success
     text-align: center
@@ -344,3 +432,6 @@ button
     background-color: #ffffff
     padding: 1px
     border-radius: 2px
+
+
+
