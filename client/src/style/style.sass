@@ -150,6 +150,13 @@ footer
     align-items: center
     padding-left: 15px
 
+    +mobile
+        position: fixed
+        top: 80px
+        right: 0
+        width: 100%
+        padding-left: 23px
+
     &:after
         content: ''
         background-color: #282c34
@@ -285,7 +292,7 @@ footer
 .earth
     width: auto
     height: 300px
-    position: absolute
+    position: fixed
     bottom: 65px
     left: 0
     right: 0
@@ -394,7 +401,7 @@ button
             right: 5px
             bottom: 5px
             padding: 5px 15px
-            font-size: 24px
+            font-size: 36px
 
     .item:first-of-type
         line-height: 20px
