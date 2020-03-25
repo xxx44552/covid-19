@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node covid-19.js",
-    "copyFront": "sudo scp -r ./client/build xxx44552@188.246.235.216:/var/www/covid/client/build"
+    "copyFront": "sudo scp -r ./client/build xxx44552@188.246.235.216:/var/www/covid/client/"
   },
   "author": "",
   "license": "ISC",
