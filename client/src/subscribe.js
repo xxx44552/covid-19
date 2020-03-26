@@ -87,7 +87,7 @@ export default function Subscribe(props) {
           </div>
           <div className="email-wrap">
             { error && showError ? <p className='email-error'>{error}</p> : null}
-            <input type='email' onautocomplete={emailFunc} onChange={emailFunc} placeholder='Ваш email..'/>
+            <input type='text' className='set' onSelect={emailFunc} onInput={emailFunc} onChange={emailFunc} placeholder='Ваш email..'/>
           </div>
           {
             success ?
