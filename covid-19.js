@@ -26,6 +26,7 @@ app.post('/subscribe', async function (req, res) {
       });
       await subscriber.save();
       send.welcome(req.body.email, req.body.countries);
+      send.newSubscriber(req.body.email, req.body.countries);
     }
     res.send({success: true});
   }catch (e) {

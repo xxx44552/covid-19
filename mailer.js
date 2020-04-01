@@ -115,6 +115,23 @@ function welcome(email, countries) {
       console.log(info)
     }
   });
+};
+
+function newSubscriber(email, countries) {
+  const mailOptions = {
+    from: 'nodejs',
+    to: 'xxx44552@gmail.com',
+    subject: 'Новый подписчик на статистику по COVID-19',
+    text: `Email - ${email}, страны - ${countries}.`
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error)
+    } else {
+      console.log(info)
+    }
+  });
 }
 
 function unSubscribe(email) {
@@ -135,4 +152,4 @@ function unSubscribe(email) {
   });
 }
 
-module.exports = {sendMailToSubscriber, welcome, unSubscribe};
+module.exports = {sendMailToSubscriber, welcome, unSubscribe, newSubscriber};
