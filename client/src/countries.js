@@ -44,7 +44,7 @@ function Countries() {
                      <div className='wrap'>
                        <span>Общее количество заболевших - {cases}</span>
                        <span>Заболевших сегодня - {todayCases}</span>
-                       <span>Общее количесвто смертности - {deaths}</span>
+                       <span>Общее количесвто смертей - {deaths}</span>
                        <span>Смертей сегодня - {todayDeaths}</span>
                        <span>Вылечившиеся - {recovered}</span>
                        <span>Активные - {active}</span>
