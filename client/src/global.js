@@ -33,7 +33,7 @@ function Global() {
                   <p className='global-num'>{cases}</p>
                 </div>
                 <div className="item">
-                  <img src={death} alt=''/>
+                  <img src={death} alt='умершие'/>
                   <p className='global-text'>Умершие</p>
                   <p className='global-num'>{deaths}</p>
                 </div>
