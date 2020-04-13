@@ -56,7 +56,7 @@ function sendMailToSubscriber(email, text, global) {
             <td>${todayCases}</td>
           </tr>
           <tr>
-            <td>Общее количесвто смертей</td>
+            <td>Общее количество смертей</td>
             <td>${deaths}</td>
           </tr>
           <tr>
