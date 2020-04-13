@@ -28,7 +28,7 @@ function Global() {
               <h3>Общая статистика</h3>
               <div className="global-wrap">
                 <div className="item">
-                  <img src={sick} alt=''/>
+                  <img src={sick} alt='заболевшие'/>
                   <p className='global-text'>Заболевшие</p>
                   <p className='global-num'>{cases}</p>
                 </div>
