@@ -30,7 +30,7 @@ function Start() {
              </p>
              <h5>Подписаться на ежедневную рассылку статистики</h5>
              <Subscribe data={data}/>
-             <img className='earth' src={earth} alt=''/>
+             <img className='earth' src={earth} alt='Земля'/>
            </div>
        }
      </>
