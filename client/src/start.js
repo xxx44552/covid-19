@@ -7,12 +7,13 @@ function Start() {
 
   const [data, setData] = useState([]);
   const [isLoader, setIsLoader] = useState(true);
+  const ignoreList = ['', 'World'];
 
   useEffect(() => {
     fetch('https://coronavirus-19-api.herokuapp.com/countries')
         .then(res => res.json())
         .then(data => {
-          setData(data.map(el => el.country).filter((el)  => el !== 'World'));
+          setData(data.map(el => el.country).filter((el)  => el !== 'World' && el !== '').sort());
           setIsLoader(false)
         })
   }, []);

@@ -11,7 +11,7 @@ function Countries() {
     fetch('https://coronavirus-19-api.herokuapp.com/countries')
         .then(res => res.json())
         .then(data => {
-          setCountries(data.filter((el)  => el.country !== 'World'));
+          setCountries(data.filter(({country})  => country !== '' && country !== 'World'));
           setSave(data);
           setIsLoader(false);
         })
