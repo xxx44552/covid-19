@@ -79,7 +79,7 @@ function Countries() {
                      <option value='recovered'>вылечившимся</option>
                      <option value='active'>активные</option>
                      <option value='critical'>критические</option>
-                     <option value='casesPerOneMillion'>заболевшим на милион</option>
+                     <option value='casesPerOneMillion'>заболевшим на миллион</option>
                    </select>
                  </div>
                </div>
