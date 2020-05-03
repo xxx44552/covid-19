@@ -473,5 +473,30 @@ button
     padding: 1px
     border-radius: 2px
 
+.sort-country-wrap
+    position: relative
+    height: 36px
+
+    &:before
+        content: 'Сортировка по - '
+        position: absolute
+        color: #808080
+        left: -100px
+        font-size: 13.3px
+        top: 50%
+        transform: translateY(-50%)
+
+.sort-country
+    border: none
+    height: 36px
+    background-color: #111
+    color: #808080
+    text-decoration: underline
 
 
+    option
+        color: #ffffff
+
+    &:focus
+        outline: none
+        color: #ffffff
