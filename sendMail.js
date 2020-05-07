@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 require('./mangoose');
 
 async function sendToUser() {
+  let getYesterday = await saveData.findOne().sort({createdAt: -1});
   let data;
   let global;
   try {
@@ -20,6 +21,14 @@ async function sendToUser() {
     console.log(e)
   }
   try {
+    //fix if empty yesterday data
+    if(!getYesterday) {
+      console.log('Empty yesterday data')
+      getYesterday = {
+        globalData: global,
+        countryData: data
+      }
+    }
     const users = await Subscriber.find();
     await users.forEach(({email, countries}) => {
       let arr = [];
@@ -28,8 +37,13 @@ async function sendToUser() {
           if(el.country === country) arr.push(el)
         })
       });
-      send.sendMailToSubscriber(email, arr, JSON.parse(global))
+      send.sendMailToSubscriber(email, arr, JSON.parse(global), getYesterday)
     });
+    const yesterday = new saveData({
+      globalData: global,
+      countryData: data
+    });
+    await yesterday.save();
   }catch (e) {
     console.log(e)
   }
