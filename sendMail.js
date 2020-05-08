@@ -1,6 +1,7 @@
 const send = require('./mailer');
 const request = require('request-promise');
 const Subscriber = require('./models/subscriber');
+const saveData = require('./models/saveData');
 const mongoose = require('mongoose');
 require('./mangoose');
 
