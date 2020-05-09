@@ -23,6 +23,18 @@ function sendMailToSubscriber(email, text, global, yesterday) {
   var yesterdayGlobal = JSON.parse(yesterday.globalData);
   var yesterdayCountry = JSON.parse(yesterday.countryData);
   const link = `https://covid.webinme.ru/unsubscribe/${email}`;
+
+  const websiteLink = `
+   <table style="display: block;width: 100%;max-width: 600px;">
+     <tbody>
+       <tr>
+         <td style="text-align: right">
+            <a href="https://covid.webinme.ru">Ссылка на сайт</a> 
+        </td>
+      </tr>
+    </tbody>
+  </table>`;
+
   const unsubscribe = `
    <table style="display: block;width: 100%;max-width: 600px;">
      <tbody>
@@ -115,7 +127,7 @@ function sendMailToSubscriber(email, text, global, yesterday) {
     from: 'nodejs',
     to: email,
     subject: `Статистика по коронавирусу на ${new Date().toLocaleString()}`,
-    html: descr + globalData + data + unsubscribe
+    html: descr + websiteLink + globalData + data + unsubscribe
   };
 
   transporter.sendMail(mailOptions, function(error, info){
