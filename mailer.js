@@ -9,11 +9,11 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-function progress(today, yesterday) {
+function compare(today, yesterday, reverse) {
   if(today > yesterday) {
-    return `<span style="color: red"> + ${today - yesterday}</span>`
+    return `<span style="${reverse ? 'color: green' : 'color: red'}"> + ${today - yesterday}</span>`
   }else if(today < yesterday) {
-    return `<span style="color: green"> - ${yesterday - today}</span>`
+    return `<span style="${reverse ? 'color: red' : 'color: green'}"> - ${yesterday - today}</span>`
   }else {
     return '';
   }
@@ -39,15 +39,15 @@ function sendMailToSubscriber(email, text, global, yesterday) {
             <tr><th>Общая статистика по миру</th></tr>
             <tr>
               <td>Заболевшие</td>
-              <td>${global.cases} ${progress(global.cases, yesterdayGlobal.cases)}</td>
+              <td>${global.cases} ${compare(global.cases, yesterdayGlobal.cases)}</td>
             </tr>
             <tr>
               <td>Умершие</td>
-              <td>${global.deaths} ${progress(global.deaths, yesterdayGlobal.deaths)}</td>
+              <td>${global.deaths} ${compare(global.deaths, yesterdayGlobal.deaths)}</td>
             </tr>
             <tr>
               <td>Вылечились</td>
-              <td>${global.recovered} ${progress(global.recovered, yesterdayGlobal.recovered)}</td>
+              <td>${global.recovered} ${compare(global.recovered, yesterdayGlobal.recovered)}</td>
             </tr>
         </tbody>
     </table>
@@ -65,35 +65,35 @@ function sendMailToSubscriber(email, text, global, yesterday) {
           </tr>
           <tr>
             <td>Общее количество заболевших</td>
-            <td>${cases} ${progress(cases, yesterdayData[0].cases)}</td>
+            <td>${cases} ${compare(cases, yesterdayData[0].cases)}</td>
           </tr>
           <tr>
             <td>Заболевших сегодня</td>
-            <td>${todayCases} ${progress(todayCases, yesterdayData[0].todayCases)}</td>
+            <td>${todayCases} ${compare(todayCases, yesterdayData[0].todayCases)}</td>
           </tr>
           <tr>
             <td>Общее количество смертей</td>
-            <td>${deaths} ${progress(deaths, yesterdayData[0].deaths)}</td>
+            <td>${deaths} ${compare(deaths, yesterdayData[0].deaths)}</td>
           </tr>
           <tr>
             <td>Смертей сегодня</td>
-            <td>${todayDeaths} ${progress(todayDeaths, yesterdayData[0].todayDeaths)}</td>
+            <td>${todayDeaths} ${compare(todayDeaths, yesterdayData[0].todayDeaths)}</td>
           </tr>
           <tr>
             <td>Вылечившиеся</td>
-            <td>${recovered} ${progress(recovered, yesterdayData[0].recovered)}</td>
+            <td>${recovered} ${compare(recovered, yesterdayData[0].recovered, true)}</td>
           </tr>
           <tr>
             <td>Активные</td>
-            <td>${active} ${progress(active, yesterdayData[0].active)}</td>
+            <td>${active} ${compare(active, yesterdayData[0].active)}</td>
           </tr>
           <tr>
             <td>Критические</td>
-            <td>${critical} ${progress(critical, yesterdayData[0].critical)}</td>
+            <td>${critical} ${compare(critical, yesterdayData[0].critical)}</td>
           </tr>
           <tr>
             <td>Заболевших на миллион</td>
-            <td>${casesPerOneMillion} ${progress(casesPerOneMillion, yesterdayData[0].casesPerOneMillion)}</td>
+            <td>${casesPerOneMillion} ${compare(casesPerOneMillion, yesterdayData[0].casesPerOneMillion)}</td>
           </tr>
         </tbody>
     </table><br/>`
