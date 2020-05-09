@@ -59,7 +59,7 @@ function sendMailToSubscriber(email, text, global, yesterday) {
             </tr>
             <tr>
               <td>Вылечились</td>
-              <td>${global.recovered} ${compare(global.recovered, yesterdayGlobal.recovered)}</td>
+              <td>${global.recovered} ${compare(global.recovered, yesterdayGlobal.recovered, true)}</td>
             </tr>
         </tbody>
     </table>
