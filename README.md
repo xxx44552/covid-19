@@ -1,0 +1,1 @@
+[covid.webinme.ru](https://covid.webinme.ru)
