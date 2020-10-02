@@ -31,7 +31,7 @@ jobs:
           PORT: ${{secrets.PORT}}
           KEY: ${{secrets.SSH_KEY}}
           script: |
-            cd /var/www/covid
+            cd /var/www/covid/public
             npm i
             cd client
             npm i
