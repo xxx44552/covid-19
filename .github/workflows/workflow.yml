@@ -21,7 +21,7 @@ jobs:
         with:
           rm: true
           source: "."
-          target: "/var/www/covid"
+          target: "/var/www/covid/public"
 
       - name: Executing remote command
         uses: appleboy/ssh-action@master
