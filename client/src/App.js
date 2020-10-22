@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Global from "./global";
 import Countries from "./countries";
 import Nav from "./nav";
@@ -9,11 +9,14 @@ import Uaparser from 'ua-parser-js'
 
 function App() {
 
-  const parser = new Uaparser();
-  parser.setUA(navigator.userAgent);
-  const result = parser.getResult();
-  console.log(result)
-  const [info] = useState(result);
+  const [info, setInfo] = useState(null);
+
+  useEffect(() => {
+    const parser = new Uaparser();
+    parser.setUA(navigator.userAgent);
+    const result = parser.getResult();
+    setInfo(result)
+  }, [])
 
   return (
     <BrowserRouter>
