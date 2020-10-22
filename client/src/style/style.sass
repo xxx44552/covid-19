@@ -389,14 +389,14 @@ button
             display: block
             position: absolute
 
-    
+
     .item
         line-height: 30px
         display: flex
         align-items: center
         padding-left: 5px
         color: $text
-        
+
         &:first-of-type
             position: sticky
             top: 0
@@ -459,10 +459,10 @@ button
 .success
     text-align: center
     margin-top: 15px
-    
+
 .email-wrap
     position: relative
-    
+
 .email-error
     font-size: 11px
     color: red
@@ -500,3 +500,12 @@ button
     &:focus
         outline: none
         color: #ffffff
+
+.device
+    position: absolute
+    right: 10px
+    bottom: 80px
+    display: none
+
+    +mobile
+        display: block

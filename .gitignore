@@ -12,6 +12,8 @@
 # production
 client/build
 
+.tool-versions
+
 # misc
 .DS_Store
 .env.local
