@@ -12,7 +12,7 @@ function App() {
   const parser = new Uaparser();
   parser.setUA(navigator.userAgent);
   const result = parser.getResult();
-
+  console.log(result)
   const [info] = useState(result);
 
   return (
